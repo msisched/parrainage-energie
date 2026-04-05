@@ -64,6 +64,7 @@
     th, td {
       padding: 14px;
       border-bottom: 1px solid #e5e7eb;
+      text-align: left;
     }
 
     .code-box {
@@ -99,6 +100,12 @@
       color: #6b7280;
     }
 
+    /* LOGO fournisseur */
+    .provider-logo {
+      width: 160px;
+      max-width: 100%;
+    }
+
     /* SECTION IMAGE + BOUTON */
     .service-row {
       display: flex;
@@ -109,7 +116,7 @@
     }
 
     .service-row img {
-      width: 320px; /* 🔥 encore plus grand */
+      width: 320px;
       max-width: 100%;
     }
 
@@ -127,7 +134,6 @@
       background: #1d4ed8;
     }
 
-    /* MOBILE */
     @media (max-width: 700px) {
       .service-row {
         flex-direction: column;
@@ -178,7 +184,9 @@
 
       <tbody>
         <tr>
-          <td>TotalEnergies</td>
+          <td>
+            <img src="Logo_TotalEnergies.svg" alt="TotalEnergies" class="provider-logo">
+          </td>
           <td>Électricité / Gaz</td>
           <td>
             <div class="code-box">
