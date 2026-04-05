@@ -4,7 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Code parrainage énergie - TotalEnergies et autres fournisseurs</title>
-  <meta name="description" content="Retrouvez les codes de parrainage pour plusieurs fournisseurs d’énergie et comparez les offres grâce au comparateur officiel du gouvernement." />
+  <meta name="description" content="Comparez les fournisseurs d’énergie et trouvez des codes de parrainage pour économiser." />
+
   <style>
     * {
       box-sizing: border-box;
@@ -24,17 +25,6 @@
       text-align: center;
     }
 
-    header h1 {
-      margin: 0 0 12px;
-      font-size: 2rem;
-    }
-
-    header p {
-      margin: 0;
-      font-size: 1rem;
-      opacity: 0.95;
-    }
-
     main {
       max-width: 1000px;
       margin: 0 auto;
@@ -49,31 +39,22 @@
       margin-bottom: 24px;
     }
 
-    .note {
-      background: #eff6ff;
-      border-left: 4px solid #2563eb;
-      padding: 16px;
-      border-radius: 8px;
-      margin-bottom: 24px;
-    }
-
     .search-box {
       margin-bottom: 20px;
     }
 
     .search-box input {
       width: 100%;
-      padding: 14px 16px;
+      padding: 14px;
       border: 1px solid #d1d5db;
       border-radius: 10px;
-      font-size: 1rem;
     }
 
     table {
       width: 100%;
       border-collapse: collapse;
-      overflow: hidden;
       border-radius: 12px;
+      overflow: hidden;
     }
 
     thead {
@@ -81,308 +62,145 @@
     }
 
     th, td {
-      padding: 14px 12px;
-      text-align: left;
+      padding: 14px;
       border-bottom: 1px solid #e5e7eb;
-      vertical-align: top;
-    }
-
-    th {
-      font-size: 0.95rem;
-    }
-
-    td {
-      background: white;
     }
 
     .code-box {
       display: flex;
       gap: 8px;
       align-items: center;
-      flex-wrap: wrap;
     }
 
     .code {
       background: #f3f4f6;
       border: 1px dashed #9ca3af;
-      border-radius: 8px;
-      padding: 8px 10px;
+      padding: 6px 10px;
+      border-radius: 6px;
       font-weight: bold;
-      letter-spacing: 0.5px;
     }
 
     button {
-      border: none;
       background: #2563eb;
       color: white;
-      padding: 9px 12px;
-      border-radius: 8px;
+      border: none;
+      padding: 8px 10px;
+      border-radius: 6px;
       cursor: pointer;
-      font-size: 0.9rem;
     }
 
     button:hover {
       background: #1d4ed8;
     }
 
-    .small {
-      font-size: 0.9rem;
-      color: #6b7280;
-    }
-
-    .steps-title {
-      margin-top: 0;
-      margin-bottom: 10px;
-      font-size: 1.6rem;
-    }
-
-    .steps-intro {
-      color: #6b7280;
-      margin-bottom: 24px;
-    }
-
-    .steps-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 20px;
-    }
-
-    .step-box {
-      background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
-      border: 1px solid #dbeafe;
-      border-radius: 16px;
-      padding: 22px;
-      box-shadow: 0 8px 24px rgba(37, 99, 235, 0.08);
-    }
-
-    .step-number {
-      width: 42px;
-      height: 42px;
-      border-radius: 50%;
-      background: #2563eb;
-      color: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: bold;
-      font-size: 1.1rem;
-      margin-bottom: 16px;
-    }
-
-    .step-box h3 {
-      margin: 0 0 12px;
-      font-size: 1.15rem;
-      color: #111827;
-    }
-
-    .step-box p {
-      margin: 0 0 14px;
-      color: #374151;
-      line-height: 1.6;
-    }
-
-    .step-link {
-      display: inline-block;
-      margin-top: 6px;
-      background: #2563eb;
-      color: white;
-      text-decoration: none;
-      padding: 10px 14px;
-      border-radius: 10px;
-      font-weight: 600;
-      transition: 0.2s ease;
-    }
-
-    .step-link:hover {
-      background: #1d4ed8;
-    }
-
-    .step-note {
-      font-size: 0.92rem;
-      color: #6b7280;
-    }
-
     footer {
       text-align: center;
       padding: 20px;
       color: #6b7280;
-      font-size: 0.9rem;
-    }
-
-    @media (max-width: 700px) {
-      table, thead, tbody, th, td, tr {
-        display: block;
-      }
-
-      thead {
-        display: none;
-      }
-
-      tr {
-        background: white;
-        margin-bottom: 14px;
-        border: 1px solid #e5e7eb;
-        border-radius: 12px;
-        overflow: hidden;
-      }
-
-      td {
-        border-bottom: 1px solid #f3f4f6;
-      }
-
-      td::before {
-        content: attr(data-label);
-        display: block;
-        font-size: 0.85rem;
-        color: #6b7280;
-        margin-bottom: 6px;
-        font-weight: bold;
-      }
-
-      .steps-title {
-        font-size: 1.35rem;
-      }
     }
   </style>
 </head>
+
 <body>
-  <header>
-    <h1>Parrainage Énergie</h1>
-    <p>Comparez les fournisseurs et récupérez facilement les codes de parrainage.</p>
-  </header>
 
-  <main>
-    <div class="note">
-      <strong>Important :</strong> vérifiez toujours les conditions des offres de parrainage sur le site officiel de chaque fournisseur avant utilisation.
+<header>
+  <h1>Parrainage Énergie</h1>
+  <p>Comparez les fournisseurs et récupérez facilement les codes de parrainage.</p>
+</header>
+
+<main>
+
+  <div class="card">
+    <h2>Comparez les fournisseurs</h2>
+    <p>
+      Il existe plusieurs fournisseurs d’électricité et de gaz sur le marché.
+      Pour faire votre choix, vous pouvez utiliser le comparateur officiel du gouvernement :
+    </p>
+
+    <p>
+      <a href="https://comparateur-offres.energie-info.fr/compte/profil?profil=particulier" target="_blank">
+        Accéder au comparateur officiel
+      </a>
+    </p>
+  </div>
+
+  <div class="card">
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="Rechercher un fournisseur..." />
     </div>
 
-    <div class="card">
-      <div class="search-box">
-        <input type="text" id="searchInput" placeholder="Rechercher un fournisseur..." />
-      </div>
+    <table id="providersTable">
+      <thead>
+        <tr>
+          <th>Fournisseur</th>
+          <th>Type</th>
+          <th>Code</th>
+          <th>Avantage</th>
+        </tr>
+      </thead>
 
-      <table id="providersTable">
-        <thead>
-          <tr>
-            <th>Fournisseur</th>
-            <th>Type</th>
-            <th>Code de parrainage</th>
-            <th>Avantage</th>
-            <th>Lien</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td data-label="Fournisseur">TotalEnergies</td>
-            <td data-label="Type">Électricité / Gaz</td>
-            <td data-label="Code de parrainage">
-              <div class="code-box">
-                <span class="code" id="code-total">TONCODETOTAL</span>
-                <button onclick="copyCode('code-total')">Copier</button>
-              </div>
-            </td>
-            <td data-label="Avantage">Exemple : prime de bienvenue / réduction</td>
-            <td data-label="Lien">
-              <a href="#" target="_blank" rel="noopener noreferrer">Voir l’offre</a>
-            </td>
-          </tr>
+      <tbody>
+        <tr>
+          <td>TotalEnergies</td>
+          <td>Électricité / Gaz</td>
+          <td>
+            <div class="code-box">
+              <span class="code" id="code1">TONCODE</span>
+              <button onclick="copyCode('code1')">Copier</button>
+            </div>
+          </td>
+          <td>Bonus / réduction</td>
+        </tr>
 
-          <tr>
-            <td data-label="Fournisseur">Fournisseur 2</td>
-            <td data-label="Type">Électricité</td>
-            <td data-label="Code de parrainage">
-              <div class="code-box">
-                <span class="code" id="code-f2">CODEFOURNISSEUR2</span>
-                <button onclick="copyCode('code-f2')">Copier</button>
-              </div>
-            </td>
-            <td data-label="Avantage">Exemple : 20€ offerts</td>
-            <td data-label="Lien">
-              <a href="#" target="_blank" rel="noopener noreferrer">Voir l’offre</a>
-            </td>
-          </tr>
+        <tr>
+          <td>Fournisseur 2</td>
+          <td>Électricité</td>
+          <td>
+            <div class="code-box">
+              <span class="code" id="code2">CODE2</span>
+              <button onclick="copyCode('code2')">Copier</button>
+            </div>
+          </td>
+          <td>20€ offerts</td>
+        </tr>
 
-          <tr>
-            <td data-label="Fournisseur">Fournisseur 3</td>
-            <td data-label="Type">Gaz</td>
-            <td data-label="Code de parrainage">
-              <div class="code-box">
-                <span class="code" id="code-f3">CODEFOURNISSEUR3</span>
-                <button onclick="copyCode('code-f3')">Copier</button>
-              </div>
-            </td>
-            <td data-label="Avantage">Exemple : bonus parrain / filleul</td>
-            <td data-label="Lien">
-              <a href="#" target="_blank" rel="noopener noreferrer">Voir l’offre</a>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+        <tr>
+          <td>Fournisseur 3</td>
+          <td>Gaz</td>
+          <td>
+            <div class="code-box">
+              <span class="code" id="code3">CODE3</span>
+              <button onclick="copyCode('code3')">Copier</button>
+            </div>
+          </td>
+          <td>Bonus parrainage</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
-    <div class="card">
-      <h2 class="steps-title">Obtenir un code de parrainage en 2 étapes</h2>
-      <p class="steps-intro">
-        Comparez d’abord les offres, puis utilisez le code de parrainage du fournisseur choisi.
-      </p>
+</main>
 
-      <div class="steps-grid">
-        <div class="step-box">
-          <div class="step-number">1</div>
-          <h3>Comparez les fournisseurs</h3>
-          <p>
-            Il existe plusieurs fournisseurs d’électricité et de gaz sur le marché.
-            Pour faire votre choix, vous pouvez utiliser le comparateur officiel du gouvernement.
-          </p>
-          <a
-            class="step-link"
-            href="https://comparateur-offres.energie-info.fr/compte/profil?profil=particulier"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Voir le comparateur officiel
-          </a>
-        </div>
+<footer>
+  © 2026 - Parrainage Énergie
+</footer>
 
-        <div class="step-box">
-          <div class="step-number">2</div>
-          <h3>Copiez le code de parrainage</h3>
-          <p>
-            Une fois le meilleur fournisseur choisi, souscrivez en copiant le code
-            de parrainage indiqué dans le tableau ci-dessus.
-          </p>
-          <p class="step-note">
-            Vérifiez toujours les conditions de l’offre avant de finaliser votre inscription.
-          </p>
-        </div>
-      </div>
-    </div>
-  </main>
+<script>
+function copyCode(id) {
+  const code = document.getElementById(id).textContent;
+  navigator.clipboard.writeText(code);
+  alert("Code copié : " + code);
+}
 
-  <footer>
-    © 2026 - Parrainage Énergie
-  </footer>
+document.getElementById("searchInput").addEventListener("keyup", function () {
+  const filter = this.value.toLowerCase();
+  const rows = document.querySelectorAll("#providersTable tbody tr");
 
-  <script>
-    function copyCode(elementId) {
-      const code = document.getElementById(elementId).textContent;
-      navigator.clipboard.writeText(code).then(() => {
-        alert("Code copié : " + code);
-      });
-    }
+  rows.forEach(row => {
+    row.style.display = row.textContent.toLowerCase().includes(filter) ? "" : "none";
+  });
+});
+</script>
 
-    const searchInput = document.getElementById("searchInput");
-    const table = document.getElementById("providersTable");
-    const rows = table.getElementsByTagName("tr");
-
-    searchInput.addEventListener("keyup", function() {
-      const filter = searchInput.value.toLowerCase();
-
-      for (let i = 1; i < rows.length; i++) {
-        const rowText = rows[i].textContent.toLowerCase();
-        rows[i].style.display = rowText.includes(filter) ? "" : "none";
-      }
-    });
-  </script>
 </body>
 </html>
