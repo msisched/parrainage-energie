@@ -7,9 +7,7 @@
   <meta name="description" content="Comparez les fournisseurs d’énergie et trouvez des codes de parrainage pour économiser." />
 
   <style>
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
@@ -39,10 +37,6 @@
       margin-bottom: 24px;
     }
 
-    .search-box {
-      margin-bottom: 20px;
-    }
-
     .search-box input {
       width: 100%;
       padding: 14px;
@@ -57,9 +51,7 @@
       overflow: hidden;
     }
 
-    thead {
-      background: #e5edff;
-    }
+    thead { background: #e5edff; }
 
     th, td {
       padding: 14px;
@@ -90,9 +82,7 @@
       cursor: pointer;
     }
 
-    button:hover {
-      background: #1d4ed8;
-    }
+    button:hover { background: #1d4ed8; }
 
     footer {
       text-align: center;
@@ -100,13 +90,11 @@
       color: #6b7280;
     }
 
-    /* LOGO fournisseur */
     .provider-logo {
       width: 160px;
       max-width: 100%;
     }
 
-    /* SECTION IMAGE + BOUTON */
     .service-row {
       display: flex;
       align-items: center;
@@ -127,12 +115,9 @@
       border-radius: 12px;
       text-decoration: none;
       font-weight: 600;
-      font-size: 1rem;
     }
 
-    .service-row a:hover {
-      background: #1d4ed8;
-    }
+    .service-row a:hover { background: #1d4ed8; }
 
     @media (max-width: 700px) {
       .service-row {
@@ -160,7 +145,6 @@
 
     <div class="service-row">
       <img src="service-public.png" alt="Service Public">
-
       <a href="https://www.service-public.gouv.fr/particuliers/vosdroits/R43794" target="_blank">
         Accéder au comparateur officiel
       </a>
@@ -183,10 +167,12 @@
       </thead>
 
       <tbody>
+
+        <!-- TotalEnergies -->
         <tr>
           <td data-search="totalenergies total energie total">
             <span style="display:none;">TotalEnergies</span>
-            <img src="Logo_TotalEnergies.svg" alt="TotalEnergies" class="provider-logo">
+            <img src="Logo_TotalEnergies.svg" class="provider-logo">
           </td>
           <td>Électricité / Gaz</td>
           <td>
@@ -198,6 +184,23 @@
           <td>Bonus / réduction</td>
         </tr>
 
+        <!-- Octopus -->
+        <tr>
+          <td data-search="octopus energy octopus">
+            <span style="display:none;">Octopus Energy</span>
+            <img src="octopus.png" class="provider-logo">
+          </td>
+          <td>Électricité</td>
+          <td>
+            <div class="code-box">
+              <span class="code" id="code4">CODEOCTOPUS</span>
+              <button onclick="copyCode('code4')">Copier</button>
+            </div>
+          </td>
+          <td>Bonus parrainage</td>
+        </tr>
+
+        <!-- Fournisseur 2 -->
         <tr>
           <td>Fournisseur 2</td>
           <td>Électricité</td>
@@ -210,6 +213,7 @@
           <td>20€ offerts</td>
         </tr>
 
+        <!-- Fournisseur 3 -->
         <tr>
           <td>Fournisseur 3</td>
           <td>Gaz</td>
@@ -221,6 +225,7 @@
           </td>
           <td>Bonus parrainage</td>
         </tr>
+
       </tbody>
     </table>
   </div>
