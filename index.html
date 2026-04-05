@@ -98,6 +98,32 @@
       padding: 20px;
       color: #6b7280;
     }
+
+    /* 👉 NOUVEAU STYLE POUR LE LIEN AVEC LOGO */
+    .service-link {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .service-link img {
+      width: 180px;
+      max-width: 100%;
+    }
+
+    .service-link a {
+      background: #2563eb;
+      color: white;
+      padding: 10px 14px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .service-link a:hover {
+      background: #1d4ed8;
+    }
   </style>
 </head>
 
@@ -117,11 +143,12 @@
       Pour faire votre choix, vous pouvez utiliser le comparateur officiel du gouvernement :
     </p>
 
-    <p>
-      <a href="https://comparateur-offres.energie-info.fr/compte/profil?profil=particulier" target="_blank">
+    <div class="service-link">
+      <img src="service-public.png" alt="Service Public">
+      <a href="https://www.service-public.gouv.fr/particuliers/vosdroits/R43794" target="_blank">
         Accéder au comparateur officiel
       </a>
-    </p>
+    </div>
   </div>
 
   <div class="card">
