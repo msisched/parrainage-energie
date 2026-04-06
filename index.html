@@ -5,6 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Code parrainage énergie</title>
 
+  <!-- 🔥 GOOGLE ANALYTICS -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXX');
+  </script>
+
   <style>
     * { box-sizing: border-box; }
 
@@ -58,18 +67,17 @@
       text-align: left;
     }
 
-    /* tailles ajustées */
     .provider-logo {
       height: 60px;
       object-fit: contain;
     }
 
     .logo-total {
-      height: 100px; /* 🔥 encore plus grand */
+      height: 100px;
     }
 
     .logo-primeo {
-      height: 40px; /* 🔥 plus petit */
+      height: 40px;
     }
 
     .code {
@@ -110,13 +118,6 @@
     .empty {
       color: #888;
       font-style: italic;
-    }
-
-    @media (max-width: 700px) {
-      .service-row {
-        flex-direction: column;
-        gap: 15px;
-      }
     }
   </style>
 </head>
@@ -162,62 +163,77 @@
 
         <!-- Total -->
         <tr>
-          <td>
-            <span style="display:none;">total</span>
-            <img src="Logo_TotalEnergies.svg" class="provider-logo logo-total">
-          </td>
+          <td><span style="display:none;">total</span><img src="Logo_TotalEnergies.svg" class="provider-logo logo-total"></td>
           <td>Électricité / Gaz</td>
-          <td><span class="code" id="c1">114201916</span> <button onclick="copyCode('c1')">Copier</button></td>
+          <td>
+            <span class="code" id="c1">114201916</span>
+            <button onclick="copyCode('c1','total')">Copier</button>
+          </td>
           <td>20 euros</td>
           <td class="empty">Pas de lien</td>
         </tr>
 
         <!-- Octopus -->
         <tr>
-          <td>
-            <span style="display:none;">octopus</span>
-            <img src="octopus.png" class="provider-logo">
-          </td>
+          <td><span style="display:none;">octopus</span><img src="octopus.png" class="provider-logo"></td>
           <td>Électricité / Gaz</td>
           <td class="empty">Pas de code</td>
           <td>40 euros</td>
-          <td><a href="https://share.octopusenergy.fr/codeparrainage/smoke-window-954" target="_blank">Lien</a></td>
+          <td>
+            <a href="https://share.octopusenergy.fr/codeparrainage/smoke-window-954"
+               target="_blank"
+               onclick="trackLink('octopus')">
+              Lien
+            </a>
+          </td>
         </tr>
 
         <!-- Mint -->
         <tr>
-          <td>
-            <span style="display:none;">mint</span>
-            <img src="Mint_energie.png" class="provider-logo">
-          </td>
+          <td><span style="display:none;">mint</span><img src="Mint_energie.png" class="provider-logo"></td>
           <td>Électricité / Gaz</td>
-          <td><span class="code" id="c5">7796938</span> <button onclick="copyCode('c5')">Copier</button></td>
+          <td>
+            <span class="code" id="c5">7796938</span>
+            <button onclick="copyCode('c5','mint')">Copier</button>
+          </td>
           <td>10 euros</td>
-          <td><a href="https://client.mint-energie.com?cp=7796938" target="_blank">Lien</a></td>
+          <td>
+            <a href="https://client.mint-energie.com?cp=7796938"
+               target="_blank"
+               onclick="trackLink('mint')">
+              Lien
+            </a>
+          </td>
         </tr>
 
         <!-- Primeo -->
         <tr>
-          <td>
-            <span style="display:none;">primeo</span>
-            <img src="primeo_energie.png" class="provider-logo logo-primeo">
-          </td>
+          <td><span style="display:none;">primeo</span><img src="primeo_energie.png" class="provider-logo logo-primeo"></td>
           <td>Électricité / Gaz</td>
-          <td><span class="code" id="c4">CLT85638862</span> <button onclick="copyCode('c4')">Copier</button></td>
+          <td>
+            <span class="code" id="c4">CLT85638862</span>
+            <button onclick="copyCode('c4','primeo')">Copier</button>
+          </td>
           <td>15 euros</td>
           <td class="empty">Pas de lien</td>
         </tr>
 
         <!-- Ekwateur -->
         <tr>
-          <td>
-            <span style="display:none;">ekwateur</span>
-            <img src="Ekwateur.png" class="provider-logo">
-          </td>
+          <td><span style="display:none;">ekwateur</span><img src="Ekwateur.png" class="provider-logo"></td>
           <td>Électricité / Gaz</td>
-          <td><span class="code" id="c3">EKW002441537</span> <button onclick="copyCode('c3')">Copier</button></td>
+          <td>
+            <span class="code" id="c3">EKW002441537</span>
+            <button onclick="copyCode('c3','ekwateur')">Copier</button>
+          </td>
           <td>150 kWh</td>
-          <td><a href="https://souscription.ekwateur.fr/?codePromo=EKW002441537" target="_blank">Lien</a></td>
+          <td>
+            <a href="https://souscription.ekwateur.fr/?codePromo=EKW002441537"
+               target="_blank"
+               onclick="trackLink('ekwateur')">
+              Lien
+            </a>
+          </td>
         </tr>
 
       </tbody>
@@ -227,9 +243,23 @@
 </main>
 
 <script>
-function copyCode(id){
-  navigator.clipboard.writeText(document.getElementById(id).innerText);
+function copyCode(id, provider){
+  const code = document.getElementById(id).innerText;
+  navigator.clipboard.writeText(code);
+
+  // 🔥 tracking copie
+  gtag('event', 'copy_code', {
+    provider: provider
+  });
+
   alert("Copié !");
+}
+
+function trackLink(provider){
+  // 🔥 tracking clic lien
+  gtag('event', 'click_link', {
+    provider: provider
+  });
 }
 
 document.getElementById("searchInput").addEventListener("keyup", function(){
