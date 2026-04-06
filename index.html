@@ -3,13 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Code parrainage énergie - TotalEnergies et autres fournisseurs</title>
-  <meta name="description" content="Comparez les fournisseurs d’énergie et trouvez des codes de parrainage pour économiser." />
+  <title>Code parrainage énergie</title>
 
   <style>
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
@@ -25,48 +22,30 @@
       text-align: center;
     }
 
-    header h1 {
-      margin: 0 0 12px;
-      font-size: 2rem;
-    }
-
-    header p {
-      margin: 0;
-      font-size: 1rem;
-      opacity: 0.95;
-    }
-
     main {
       max-width: 1100px;
-      margin: 0 auto;
-      padding: 32px 20px 60px;
+      margin: auto;
+      padding: 30px;
     }
 
     .card {
       background: white;
       border-radius: 16px;
       padding: 24px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
       margin-bottom: 24px;
-    }
-
-    .search-box {
-      margin-bottom: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
     }
 
     .search-box input {
       width: 100%;
       padding: 14px;
-      border: 1px solid #d1d5db;
       border-radius: 10px;
-      font-size: 1rem;
+      border: 1px solid #ccc;
     }
 
     table {
       width: 100%;
       border-collapse: collapse;
-      border-radius: 12px;
-      overflow: hidden;
     }
 
     thead {
@@ -75,148 +54,58 @@
 
     th, td {
       padding: 14px;
-      border-bottom: 1px solid #e5e7eb;
+      border-bottom: 1px solid #eee;
       text-align: left;
-      vertical-align: middle;
     }
 
-    .code-box {
-      display: flex;
-      gap: 8px;
-      align-items: center;
-      flex-wrap: wrap;
+    /* 🔥 LOGOS TOUS ALIGNÉS */
+    .provider-logo {
+      height: 60px;
+      width: auto;
+      object-fit: contain;
+      display: block;
+      margin: auto;
     }
 
     .code {
       background: #f3f4f6;
-      border: 1px dashed #9ca3af;
       padding: 6px 10px;
       border-radius: 6px;
-      font-weight: bold;
+      border: 1px dashed #999;
     }
 
     button {
       background: #2563eb;
       color: white;
       border: none;
-      padding: 8px 10px;
+      padding: 6px 10px;
       border-radius: 6px;
       cursor: pointer;
     }
 
-    button:hover {
-      background: #1d4ed8;
-    }
-
-    .provider-logo {
-      width: 160px;
-      max-width: 100%;
-      display: block;
-    }
-
-    .provider-logo.small {
-      width: 130px;
-    }
-
-    .provider-logo.wide {
-      width: 190px;
-    }
-
     .service-row {
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      gap: 20px;
+      align-items: center;
       margin-top: 20px;
     }
 
     .service-row img {
-      width: 320px;
-      max-width: 100%;
+      height: 80px;
     }
 
     .service-row a {
       background: #2563eb;
       color: white;
-      padding: 16px 22px;
-      border-radius: 12px;
+      padding: 12px 18px;
+      border-radius: 10px;
       text-decoration: none;
-      font-weight: 600;
-      font-size: 1rem;
-    }
-
-    .service-row a:hover {
-      background: #1d4ed8;
-    }
-
-    .parrainage-link a {
-      color: #2563eb;
-      text-decoration: none;
-      font-weight: 600;
-    }
-
-    .parrainage-link a:hover {
-      text-decoration: underline;
-    }
-
-    footer {
-      text-align: center;
-      padding: 20px;
-      color: #6b7280;
-      font-size: 0.9rem;
-    }
-
-    @media (max-width: 900px) {
-      table {
-        font-size: 0.95rem;
-      }
-
-      .provider-logo,
-      .provider-logo.small,
-      .provider-logo.wide {
-        width: 130px;
-      }
     }
 
     @media (max-width: 700px) {
       .service-row {
         flex-direction: column;
-        text-align: center;
-      }
-
-      table, thead, tbody, th, td, tr {
-        display: block;
-      }
-
-      thead {
-        display: none;
-      }
-
-      tr {
-        background: white;
-        margin-bottom: 14px;
-        border: 1px solid #e5e7eb;
-        border-radius: 12px;
-        overflow: hidden;
-      }
-
-      td {
-        border-bottom: 1px solid #f3f4f6;
-      }
-
-      td::before {
-        content: attr(data-label);
-        display: block;
-        font-size: 0.85rem;
-        color: #6b7280;
-        margin-bottom: 6px;
-        font-weight: bold;
-      }
-
-      .provider-logo,
-      .provider-logo.small,
-      .provider-logo.wide {
-        width: 160px;
+        gap: 15px;
       }
     }
   </style>
@@ -226,7 +115,6 @@
 
 <header>
   <h1>Parrainage Énergie</h1>
-  <p>Comparez les fournisseurs et récupérez facilement les codes de parrainage.</p>
 </header>
 
 <main>
@@ -234,12 +122,11 @@
   <div class="card">
     <h2>
       Comparez les fournisseurs : Il existe plusieurs fournisseurs d’électricité et de gaz sur le marché.
-      Pour faire votre choix, vous pouvez utiliser le comparateur officiel du gouvernement
     </h2>
 
     <div class="service-row">
-      <img src="service-public.png" alt="Service Public">
-      <a href="https://www.service-public.gouv.fr/particuliers/vosdroits/R43794" target="_blank" rel="noopener noreferrer">
+      <img src="service-public.png">
+      <a href="https://www.service-public.gouv.fr/particuliers/vosdroits/R43794" target="_blank">
         Accéder au comparateur officiel
       </a>
     </div>
@@ -247,7 +134,7 @@
 
   <div class="card">
     <div class="search-box">
-      <input type="text" id="searchInput" placeholder="Rechercher un fournisseur..." />
+      <input id="searchInput" placeholder="Rechercher...">
     </div>
 
     <table id="providersTable">
@@ -257,143 +144,84 @@
           <th>Type</th>
           <th>Code</th>
           <th>Avantage</th>
-          <th>Lien de parrainage</th>
+          <th>Lien</th>
         </tr>
       </thead>
 
       <tbody>
+
+        <!-- Total -->
         <tr>
-          <td data-label="Fournisseur">
-            <span style="display:none;">TotalEnergies total energie total</span>
-            <img src="Logo_TotalEnergies.svg" alt="TotalEnergies" class="provider-logo">
-          </td>
-          <td data-label="Type">Électricité / Gaz</td>
-          <td data-label="Code">
-            <div class="code-box">
-              <span class="code" id="code1">TONCODE</span>
-              <button onclick="copyCode('code1')">Copier</button>
-            </div>
-          </td>
-          <td data-label="Avantage">20 euros</td>
-          <td data-label="Lien de parrainage" class="parrainage-link">
-            <a href="https://xxx.com" target="_blank" rel="noopener noreferrer">xxx.com</a>
-          </td>
+          <td><span style="display:none;">total</span><img src="Logo_TotalEnergies.svg" class="provider-logo"></td>
+          <td>Électricité / Gaz</td>
+          <td><span class="code" id="c1">CODE</span> <button onclick="copyCode('c1')">Copier</button></td>
+          <td>20 euros</td>
+          <td><a href="https://xxx.com" target="_blank">xxx.com</a></td>
         </tr>
 
+        <!-- Octopus -->
         <tr>
-          <td data-label="Fournisseur">
-            <span style="display:none;">Octopus Energy octopus</span>
-            <img src="octopus.png" alt="Octopus Energy" class="provider-logo">
-          </td>
-          <td data-label="Type">Électricité / Gaz</td>
-          <td data-label="Code">
-            <div class="code-box">
-              <span class="code" id="code2">CODEOCTOPUS</span>
-              <button onclick="copyCode('code2')">Copier</button>
-            </div>
-          </td>
-          <td data-label="Avantage">20 euros</td>
-          <td data-label="Lien de parrainage" class="parrainage-link">
-            <a href="https://xxx.com" target="_blank" rel="noopener noreferrer">xxx.com</a>
-          </td>
+          <td><span style="display:none;">octopus</span><img src="octopus.png" class="provider-logo"></td>
+          <td>Électricité / Gaz</td>
+          <td><span class="code" id="c2">CODE</span> <button onclick="copyCode('c2')">Copier</button></td>
+          <td>20 euros</td>
+          <td><a href="https://xxx.com" target="_blank">xxx.com</a></td>
         </tr>
 
+        <!-- Alpiq -->
         <tr>
-          <td data-label="Fournisseur">
-            <span style="display:none;">Alpiq</span>
-            <img src="alpiq.jpeg" alt="Alpiq" class="provider-logo small">
-          </td>
-          <td data-label="Type">Électricité / Gaz</td>
-          <td data-label="Code">
-            <div class="code-box">
-              <span class="code" id="code3">CODEALPIQ</span>
-              <button onclick="copyCode('code3')">Copier</button>
-            </div>
-          </td>
-          <td data-label="Avantage">20 euros</td>
-          <td data-label="Lien de parrainage" class="parrainage-link">
-            <a href="https://xxx.com" target="_blank" rel="noopener noreferrer">xxx.com</a>
-          </td>
+          <td><span style="display:none;">alpiq</span><img src="Alpiq.png" class="provider-logo"></td>
+          <td>Électricité / Gaz</td>
+          <td><span class="code" id="c3">CODE</span> <button onclick="copyCode('c3')">Copier</button></td>
+          <td>20 euros</td>
+          <td><a href="https://xxx.com" target="_blank">xxx.com</a></td>
         </tr>
 
+        <!-- EDF -->
         <tr>
-          <td data-label="Fournisseur">
-            <span style="display:none;">EDF</span>
-            <img src="EDF.png" alt="EDF" class="provider-logo wide">
-          </td>
-          <td data-label="Type">Électricité / Gaz</td>
-          <td data-label="Code">
-            <div class="code-box">
-              <span class="code" id="code4">CODEEDF</span>
-              <button onclick="copyCode('code4')">Copier</button>
-            </div>
-          </td>
-          <td data-label="Avantage">20 euros</td>
-          <td data-label="Lien de parrainage" class="parrainage-link">
-            <a href="https://xxx.com" target="_blank" rel="noopener noreferrer">xxx.com</a>
-          </td>
+          <td><span style="display:none;">edf</span><img src="EDF.png" class="provider-logo"></td>
+          <td>Électricité / Gaz</td>
+          <td><span class="code" id="c4">CODE</span> <button onclick="copyCode('c4')">Copier</button></td>
+          <td>20 euros</td>
+          <td><a href="https://xxx.com" target="_blank">xxx.com</a></td>
         </tr>
 
+        <!-- Primeo -->
         <tr>
-          <td data-label="Fournisseur">
-            <span style="display:none;">Primeo Energie primeo énergie</span>
-            <img src="primeo_energie.png" alt="Primeo Energie" class="provider-logo wide">
-          </td>
-          <td data-label="Type">Électricité / Gaz</td>
-          <td data-label="Code">
-            <div class="code-box">
-              <span class="code" id="code5">CODEPRIMEO</span>
-              <button onclick="copyCode('code5')">Copier</button>
-            </div>
-          </td>
-          <td data-label="Avantage">20 euros</td>
-          <td data-label="Lien de parrainage" class="parrainage-link">
-            <a href="https://xxx.com" target="_blank" rel="noopener noreferrer">xxx.com</a>
-          </td>
+          <td><span style="display:none;">primeo</span><img src="primeo_energie.png" class="provider-logo"></td>
+          <td>Électricité / Gaz</td>
+          <td><span class="code" id="c5">CODE</span> <button onclick="copyCode('c5')">Copier</button></td>
+          <td>20 euros</td>
+          <td><a href="https://xxx.com" target="_blank">xxx.com</a></td>
         </tr>
 
+        <!-- Mint -->
         <tr>
-          <td data-label="Fournisseur">
-            <span style="display:none;">Mint Energie mint énergie</span>
-            <img src="Mint_energie.png" alt="Mint Energie" class="provider-logo wide">
-          </td>
-          <td data-label="Type">Électricité / Gaz</td>
-          <td data-label="Code">
-            <div class="code-box">
-              <span class="code" id="code6">CODEMINT</span>
-              <button onclick="copyCode('code6')">Copier</button>
-            </div>
-          </td>
-          <td data-label="Avantage">20 euros</td>
-          <td data-label="Lien de parrainage" class="parrainage-link">
-            <a href="https://xxx.com" target="_blank" rel="noopener noreferrer">xxx.com</a>
-          </td>
+          <td><span style="display:none;">mint</span><img src="Mint_energie.png" class="provider-logo"></td>
+          <td>Électricité / Gaz</td>
+          <td><span class="code" id="c6">CODE</span> <button onclick="copyCode('c6')">Copier</button></td>
+          <td>20 euros</td>
+          <td><a href="https://xxx.com" target="_blank">xxx.com</a></td>
         </tr>
+
       </tbody>
     </table>
   </div>
 
 </main>
 
-<footer>
-  © 2026 - Parrainage Énergie
-</footer>
-
 <script>
-  function copyCode(id) {
-    const code = document.getElementById(id).textContent;
-    navigator.clipboard.writeText(code);
-    alert("Code copié : " + code);
-  }
+function copyCode(id){
+  navigator.clipboard.writeText(document.getElementById(id).innerText);
+  alert("Copié !");
+}
 
-  document.getElementById("searchInput").addEventListener("keyup", function () {
-    const filter = this.value.toLowerCase();
-    const rows = document.querySelectorAll("#providersTable tbody tr");
-
-    rows.forEach(row => {
-      row.style.display = row.textContent.toLowerCase().includes(filter) ? "" : "none";
-    });
+document.getElementById("searchInput").addEventListener("keyup", function(){
+  let val = this.value.toLowerCase();
+  document.querySelectorAll("tbody tr").forEach(tr=>{
+    tr.style.display = tr.innerText.toLowerCase().includes(val) ? "" : "none";
   });
+});
 </script>
 
 </body>
