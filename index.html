@@ -7,7 +7,9 @@
   <meta name="description" content="Comparez les fournisseurs d’énergie et trouvez des codes de parrainage pour économiser." />
 
   <style>
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
     body {
       margin: 0;
@@ -23,8 +25,19 @@
       text-align: center;
     }
 
+    header h1 {
+      margin: 0 0 12px;
+      font-size: 2rem;
+    }
+
+    header p {
+      margin: 0;
+      font-size: 1rem;
+      opacity: 0.95;
+    }
+
     main {
-      max-width: 1000px;
+      max-width: 1100px;
       margin: 0 auto;
       padding: 32px 20px 60px;
     }
@@ -37,11 +50,16 @@
       margin-bottom: 24px;
     }
 
+    .search-box {
+      margin-bottom: 20px;
+    }
+
     .search-box input {
       width: 100%;
       padding: 14px;
       border: 1px solid #d1d5db;
       border-radius: 10px;
+      font-size: 1rem;
     }
 
     table {
@@ -51,18 +69,22 @@
       overflow: hidden;
     }
 
-    thead { background: #e5edff; }
+    thead {
+      background: #e5edff;
+    }
 
     th, td {
       padding: 14px;
       border-bottom: 1px solid #e5e7eb;
       text-align: left;
+      vertical-align: middle;
     }
 
     .code-box {
       display: flex;
       gap: 8px;
       align-items: center;
+      flex-wrap: wrap;
     }
 
     .code {
@@ -82,17 +104,22 @@
       cursor: pointer;
     }
 
-    button:hover { background: #1d4ed8; }
-
-    footer {
-      text-align: center;
-      padding: 20px;
-      color: #6b7280;
+    button:hover {
+      background: #1d4ed8;
     }
 
     .provider-logo {
       width: 160px;
       max-width: 100%;
+      display: block;
+    }
+
+    .provider-logo.small {
+      width: 130px;
+    }
+
+    .provider-logo.wide {
+      width: 190px;
     }
 
     .service-row {
@@ -115,14 +142,81 @@
       border-radius: 12px;
       text-decoration: none;
       font-weight: 600;
+      font-size: 1rem;
     }
 
-    .service-row a:hover { background: #1d4ed8; }
+    .service-row a:hover {
+      background: #1d4ed8;
+    }
+
+    .parrainage-link a {
+      color: #2563eb;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .parrainage-link a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: #6b7280;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 900px) {
+      table {
+        font-size: 0.95rem;
+      }
+
+      .provider-logo,
+      .provider-logo.small,
+      .provider-logo.wide {
+        width: 130px;
+      }
+    }
 
     @media (max-width: 700px) {
       .service-row {
         flex-direction: column;
         text-align: center;
+      }
+
+      table, thead, tbody, th, td, tr {
+        display: block;
+      }
+
+      thead {
+        display: none;
+      }
+
+      tr {
+        background: white;
+        margin-bottom: 14px;
+        border: 1px solid #e5e7eb;
+        border-radius: 12px;
+        overflow: hidden;
+      }
+
+      td {
+        border-bottom: 1px solid #f3f4f6;
+      }
+
+      td::before {
+        content: attr(data-label);
+        display: block;
+        font-size: 0.85rem;
+        color: #6b7280;
+        margin-bottom: 6px;
+        font-weight: bold;
+      }
+
+      .provider-logo,
+      .provider-logo.small,
+      .provider-logo.wide {
+        width: 160px;
       }
     }
   </style>
@@ -145,7 +239,7 @@
 
     <div class="service-row">
       <img src="service-public.png" alt="Service Public">
-      <a href="https://www.service-public.gouv.fr/particuliers/vosdroits/R43794" target="_blank">
+      <a href="https://www.service-public.gouv.fr/particuliers/vosdroits/R43794" target="_blank" rel="noopener noreferrer">
         Accéder au comparateur officiel
       </a>
     </div>
@@ -163,69 +257,118 @@
           <th>Type</th>
           <th>Code</th>
           <th>Avantage</th>
+          <th>Lien de parrainage</th>
         </tr>
       </thead>
 
       <tbody>
-
-        <!-- TotalEnergies -->
         <tr>
-          <td data-search="totalenergies total energie total">
-            <span style="display:none;">TotalEnergies</span>
-            <img src="Logo_TotalEnergies.svg" class="provider-logo">
+          <td data-label="Fournisseur">
+            <span style="display:none;">TotalEnergies total energie total</span>
+            <img src="Logo_TotalEnergies.svg" alt="TotalEnergies" class="provider-logo">
           </td>
-          <td>Électricité / Gaz</td>
-          <td>
+          <td data-label="Type">Électricité / Gaz</td>
+          <td data-label="Code">
             <div class="code-box">
               <span class="code" id="code1">TONCODE</span>
               <button onclick="copyCode('code1')">Copier</button>
             </div>
           </td>
-          <td>Bonus / réduction</td>
+          <td data-label="Avantage">20 euros</td>
+          <td data-label="Lien de parrainage" class="parrainage-link">
+            <a href="https://xxx.com" target="_blank" rel="noopener noreferrer">xxx.com</a>
+          </td>
         </tr>
 
-        <!-- Octopus -->
         <tr>
-          <td data-search="octopus energy octopus">
-            <span style="display:none;">Octopus Energy</span>
-            <img src="octopus.png" class="provider-logo">
+          <td data-label="Fournisseur">
+            <span style="display:none;">Octopus Energy octopus</span>
+            <img src="octopus.png" alt="Octopus Energy" class="provider-logo">
           </td>
-          <td>Électricité</td>
-          <td>
+          <td data-label="Type">Électricité / Gaz</td>
+          <td data-label="Code">
             <div class="code-box">
-              <span class="code" id="code4">CODEOCTOPUS</span>
-              <button onclick="copyCode('code4')">Copier</button>
-            </div>
-          </td>
-          <td>Bonus parrainage</td>
-        </tr>
-
-        <!-- Fournisseur 2 -->
-        <tr>
-          <td>Fournisseur 2</td>
-          <td>Électricité</td>
-          <td>
-            <div class="code-box">
-              <span class="code" id="code2">CODE2</span>
+              <span class="code" id="code2">CODEOCTOPUS</span>
               <button onclick="copyCode('code2')">Copier</button>
             </div>
           </td>
-          <td>20€ offerts</td>
+          <td data-label="Avantage">20 euros</td>
+          <td data-label="Lien de parrainage" class="parrainage-link">
+            <a href="https://xxx.com" target="_blank" rel="noopener noreferrer">xxx.com</a>
+          </td>
         </tr>
 
-        <!-- Fournisseur 3 -->
         <tr>
-          <td>Fournisseur 3</td>
-          <td>Gaz</td>
-          <td>
+          <td data-label="Fournisseur">
+            <span style="display:none;">Alpiq</span>
+            <img src="alpiq.jpeg" alt="Alpiq" class="provider-logo small">
+          </td>
+          <td data-label="Type">Électricité / Gaz</td>
+          <td data-label="Code">
             <div class="code-box">
-              <span class="code" id="code3">CODE3</span>
+              <span class="code" id="code3">CODEALPIQ</span>
               <button onclick="copyCode('code3')">Copier</button>
             </div>
           </td>
-          <td>Bonus parrainage</td>
+          <td data-label="Avantage">20 euros</td>
+          <td data-label="Lien de parrainage" class="parrainage-link">
+            <a href="https://xxx.com" target="_blank" rel="noopener noreferrer">xxx.com</a>
+          </td>
         </tr>
 
+        <tr>
+          <td data-label="Fournisseur">
+            <span style="display:none;">EDF</span>
+            <img src="EDF.png" alt="EDF" class="provider-logo wide">
+          </td>
+          <td data-label="Type">Électricité / Gaz</td>
+          <td data-label="Code">
+            <div class="code-box">
+              <span class="code" id="code4">CODEEDF</span>
+              <button onclick="copyCode('code4')">Copier</button>
+            </div>
+          </td>
+          <td data-label="Avantage">20 euros</td>
+          <td data-label="Lien de parrainage" class="parrainage-link">
+            <a href="https://xxx.com" target="_blank" rel="noopener noreferrer">xxx.com</a>
+          </td>
+        </tr>
+
+        <tr>
+          <td data-label="Fournisseur">
+            <span style="display:none;">Primeo Energie primeo énergie</span>
+            <img src="primeo_energie.png" alt="Primeo Energie" class="provider-logo wide">
+          </td>
+          <td data-label="Type">Électricité / Gaz</td>
+          <td data-label="Code">
+            <div class="code-box">
+              <span class="code" id="code5">CODEPRIMEO</span>
+              <button onclick="copyCode('code5')">Copier</button>
+            </div>
+          </td>
+          <td data-label="Avantage">20 euros</td>
+          <td data-label="Lien de parrainage" class="parrainage-link">
+            <a href="https://xxx.com" target="_blank" rel="noopener noreferrer">xxx.com</a>
+          </td>
+        </tr>
+
+        <tr>
+          <td data-label="Fournisseur">
+            <span style="display:none;">Mint Energie mint énergie</span>
+            <img src="Mint_energie.png" alt="Mint Energie" class="provider-logo wide">
+          </td>
+          <td data-label="Type">Électricité / Gaz</td>
+          <td data-label="Code">
+            <div class="code-box">
+              <span class="code" id="code6">CODEMINT</span>
+              <button onclick="copyCode('code6')">Copier</button>
+            </div>
+          </td>
+          <td data-label="Avantage">20 euros</td>
+          <td data-label="Lien de parrainage" class="parrainage-link">
+            <a href="https://xxx.com" target="_blank" rel="noopener noreferrer">xxx.com</a>
+          </td>
+        </tr>
       </tbody>
     </table>
   </div>
@@ -237,20 +380,20 @@
 </footer>
 
 <script>
-function copyCode(id) {
-  const code = document.getElementById(id).textContent;
-  navigator.clipboard.writeText(code);
-  alert("Code copié : " + code);
-}
+  function copyCode(id) {
+    const code = document.getElementById(id).textContent;
+    navigator.clipboard.writeText(code);
+    alert("Code copié : " + code);
+  }
 
-document.getElementById("searchInput").addEventListener("keyup", function () {
-  const filter = this.value.toLowerCase();
-  const rows = document.querySelectorAll("#providersTable tbody tr");
+  document.getElementById("searchInput").addEventListener("keyup", function () {
+    const filter = this.value.toLowerCase();
+    const rows = document.querySelectorAll("#providersTable tbody tr");
 
-  rows.forEach(row => {
-    row.style.display = row.textContent.toLowerCase().includes(filter) ? "" : "none";
+    rows.forEach(row => {
+      row.style.display = row.textContent.toLowerCase().includes(filter) ? "" : "none";
+    });
   });
-});
 </script>
 
 </body>
