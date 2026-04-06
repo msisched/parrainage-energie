@@ -58,14 +58,18 @@
       text-align: left;
     }
 
-    /* 🔥 tailles ajustées */
+    /* tailles ajustées */
     .provider-logo {
       height: 60px;
       object-fit: contain;
     }
 
     .logo-total {
-      height: 80px; /* 🔥 plus grand */
+      height: 100px; /* 🔥 encore plus grand */
+    }
+
+    .logo-primeo {
+      height: 40px; /* 🔥 plus petit */
     }
 
     .code {
@@ -180,30 +184,6 @@
           <td><a href="https://share.octopusenergy.fr/codeparrainage/smoke-window-954" target="_blank">Lien</a></td>
         </tr>
 
-        <!-- Ekwateur -->
-        <tr>
-          <td>
-            <span style="display:none;">ekwateur</span>
-            <img src="Ekwateur.png" class="provider-logo">
-          </td>
-          <td>Électricité / Gaz</td>
-          <td><span class="code" id="c3">EKW002441537</span> <button onclick="copyCode('c3')">Copier</button></td>
-          <td>150 kWh</td>
-          <td><a href="https://souscription.ekwateur.fr/?codePromo=EKW002441537" target="_blank">Lien</a></td>
-        </tr>
-
-        <!-- Primeo -->
-        <tr>
-          <td>
-            <span style="display:none;">primeo</span>
-            <img src="primeo_energie.png" class="provider-logo">
-          </td>
-          <td>Électricité / Gaz</td>
-          <td><span class="code" id="c4">CLT85638862</span> <button onclick="copyCode('c4')">Copier</button></td>
-          <td>15 euros</td>
-          <td class="empty">Pas de lien</td>
-        </tr>
-
         <!-- Mint -->
         <tr>
           <td>
@@ -214,6 +194,30 @@
           <td><span class="code" id="c5">7796938</span> <button onclick="copyCode('c5')">Copier</button></td>
           <td>10 euros</td>
           <td><a href="https://client.mint-energie.com?cp=7796938" target="_blank">Lien</a></td>
+        </tr>
+
+        <!-- Primeo -->
+        <tr>
+          <td>
+            <span style="display:none;">primeo</span>
+            <img src="primeo_energie.png" class="provider-logo logo-primeo">
+          </td>
+          <td>Électricité / Gaz</td>
+          <td><span class="code" id="c4">CLT85638862</span> <button onclick="copyCode('c4')">Copier</button></td>
+          <td>15 euros</td>
+          <td class="empty">Pas de lien</td>
+        </tr>
+
+        <!-- Ekwateur -->
+        <tr>
+          <td>
+            <span style="display:none;">ekwateur</span>
+            <img src="Ekwateur.png" class="provider-logo">
+          </td>
+          <td>Électricité / Gaz</td>
+          <td><span class="code" id="c3">EKW002441537</span> <button onclick="copyCode('c3')">Copier</button></td>
+          <td>150 kWh</td>
+          <td><a href="https://souscription.ekwateur.fr/?codePromo=EKW002441537" target="_blank">Lien</a></td>
         </tr>
 
       </tbody>
