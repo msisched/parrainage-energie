@@ -135,8 +135,7 @@
       height: 80px;
     }
 
-    .service-row a,
-    .link-button {
+    .service-row a {
       background: #2563eb;
       color: white;
       padding: 12px 18px;
@@ -146,8 +145,7 @@
       display: inline-block;
     }
 
-    .service-row a:hover,
-    .link-button:hover {
+    .service-row a:hover {
       background: #1d4ed8;
       transform: scale(1.03);
     }
@@ -179,34 +177,37 @@
       display: inline-block;
     }
 
-    .seo-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 20px;
-      margin-top: 20px;
+    .seo-details {
+      margin-top: 8px;
     }
 
-    .seo-box {
-      background: #f8fafc;
-      border: 1px solid #e5e7eb;
-      border-radius: 14px;
-      padding: 18px;
+    .seo-details summary {
+      cursor: pointer;
+      font-weight: bold;
+      color: #1d4ed8;
+      font-size: 1rem;
+      outline: none;
     }
 
-    .seo-box h3 {
-      margin-top: 0;
+    .seo-details summary:hover {
+      text-decoration: underline;
+    }
+
+    .seo-content {
+      margin-top: 18px;
+      color: #374151;
+      font-size: 0.96rem;
+    }
+
+    .seo-content h2,
+    .seo-content h3 {
+      color: #111827;
+      margin-top: 24px;
       margin-bottom: 10px;
-      font-size: 1.1rem;
     }
 
-    .seo-box p {
-      margin-bottom: 0;
-      font-size: 0.97rem;
-    }
-
-    .small-note {
-      font-size: 0.95rem;
-      color: #4b5563;
+    .seo-content p {
+      margin: 0 0 14px 0;
     }
 
     .keyword-cloud {
@@ -231,6 +232,25 @@
       padding: 20px;
       font-size: 0.95rem;
     }
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 1.55rem;
+      }
+
+      .provider-logo {
+        height: 48px;
+      }
+
+      .logo-total {
+        height: 70px;
+      }
+
+      th, td {
+        padding: 10px;
+        font-size: 0.95rem;
+      }
+    }
   </style>
 </head>
 
@@ -242,8 +262,7 @@
     <span class="highlight-save">réduire votre facture</span>
   </h1>
   <p>
-    Code de parrainage TotalEnergies, Primeo Énergie, Mint Énergie, Octopus Energy, Ekwateur :
-    trouvez rapidement une offre, un lien ou un code promo pour faire des économies sur l’électricité et le gaz.
+    Comparez les offres d’électricité et de gaz, copiez un code de parrainage et trouvez rapidement le bon fournisseur pour payer moins cher.
   </p>
 </header>
 
@@ -255,19 +274,6 @@
       Le changement est <span class="highlight-free">gratuit</span> et peut vous faire gagner
       <span class="highlight-save">plusieurs dizaines d’euros par mois</span>.
     </h2>
-
-    <p>
-      Cette page regroupe plusieurs recherches fréquentes comme
-      <strong>parrainage TotalEnergies</strong>,
-      <strong>parrainage Total</strong>,
-      <strong>parrainage Primeo</strong>,
-      <strong>parrainage Primeo Énergie</strong>,
-      <strong>parrainage Mint</strong>,
-      <strong>parrainage Mint Énergie</strong>,
-      <strong>parrainage Octopus Energy</strong> ou encore
-      <strong>parrainage Ekwateur</strong>.
-      Vous pouvez comparer les fournisseurs, copier un code de parrainage énergie et accéder au lien de souscription quand il existe.
-    </p>
 
     <div class="service-row">
       <img src="service-public.png" alt="Service Public">
@@ -284,7 +290,7 @@
     <h2>Codes de parrainage énergie et liens par fournisseur</h2>
 
     <div class="search-box">
-      <input id="searchInput" placeholder="Rechercher un fournisseur, un code de parrainage ou un mot-clé...">
+      <input id="searchInput" placeholder="Rechercher un fournisseur...">
     </div>
 
     <table id="providersTable">
@@ -299,21 +305,20 @@
       </thead>
 
       <tbody>
-
         <tr>
           <td>
-            <span style="display:none;">total totalenergies parrainage total parrainage total energie parrainage totalenergies code parrainage total energies</span>
+            <span style="display:none;">total totalenergies parrainage total parrainage total energie parrainage totalenergies code parrainage totalenergies</span>
             <img src="Logo_TotalEnergies.svg" class="provider-logo logo-total" alt="TotalEnergies">
           </td>
           <td>Électricité / Gaz</td>
-          <td><span class="code" id="c1">114201916</span> <button onclick="copyCode('c1','total')">Copier</button></td>
+          <td><span class="code" id="c1">114201916</span><button onclick="copyCode('c1','total')">Copier</button></td>
           <td><span class="highlight-advantage">20 € offerts</span></td>
           <td class="empty">Pas de lien</td>
         </tr>
 
         <tr>
           <td>
-            <span style="display:none;">octopus octopus energy parrainage octopus parrainage octopus energy code octopus energie</span>
+            <span style="display:none;">octopus octopus energy parrainage octopus parrainage octopus energy</span>
             <img src="octopus.png" class="provider-logo" alt="Octopus Energy">
           </td>
           <td>Électricité / Gaz</td>
@@ -329,11 +334,11 @@
 
         <tr>
           <td>
-            <span style="display:none;">mint mint energie parrainage mint parrainage mint energie code parrainage mint énergie</span>
+            <span style="display:none;">mint mint energie parrainage mint parrainage mint energie code parrainage mint</span>
             <img src="Mint_energie.png" class="provider-logo" alt="Mint Énergie">
           </td>
           <td>Électricité / Gaz</td>
-          <td><span class="code" id="c5">7796938</span> <button onclick="copyCode('c5','mint')">Copier</button></td>
+          <td><span class="code" id="c5">7796938</span><button onclick="copyCode('c5','mint')">Copier</button></td>
           <td><span class="highlight-advantage">10 € offerts</span></td>
           <td>
             <a href="https://client.mint-energie.com?cp=7796938"
@@ -345,22 +350,22 @@
 
         <tr>
           <td>
-            <span style="display:none;">primeo primeo energie parrainage primeo parrainage primeo energie code parrainage primeo énergie</span>
+            <span style="display:none;">primeo primeo energie parrainage primeo parrainage primeo energie code parrainage primeo</span>
             <img src="primeo_energie.png" class="provider-logo logo-primeo" alt="Primeo Énergie">
           </td>
           <td>Électricité / Gaz</td>
-          <td><span class="code" id="c4">CLT85638862</span> <button onclick="copyCode('c4','primeo')">Copier</button></td>
+          <td><span class="code" id="c4">CLT85638862</span><button onclick="copyCode('c4','primeo')">Copier</button></td>
           <td><span class="highlight-advantage">15 € offerts</span></td>
           <td class="empty">Pas de lien</td>
         </tr>
 
         <tr>
           <td>
-            <span style="display:none;">ekwateur parrainage ekwateur code parrainage ekwateur offre ekwateur énergie</span>
+            <span style="display:none;">ekwateur parrainage ekwateur code parrainage ekwateur code promo ekwateur</span>
             <img src="Ekwateur.png" class="provider-logo logo-ekwateur" alt="Ekwateur">
           </td>
           <td>Électricité / Gaz</td>
-          <td><span class="code" id="c3">EKW002441537</span> <button onclick="copyCode('c3','ekwateur')">Copier</button></td>
+          <td><span class="code" id="c3">EKW002441537</span><button onclick="copyCode('c3','ekwateur')">Copier</button></td>
           <td><span class="highlight-advantage">150 kWh offerts</span></td>
           <td>
             <a href="https://souscription.ekwateur.fr/?codePromo=EKW002441537"
@@ -369,114 +374,110 @@
                onclick="trackLink('ekwateur')">Lien</a>
           </td>
         </tr>
-
       </tbody>
     </table>
   </div>
 
   <div class="card">
-    <h2>Parrainage TotalEnergies, Primeo, Mint, Octopus et Ekwateur</h2>
-    <p>
-      Si vous cherchez un <strong>code de parrainage énergie</strong>, cette page rassemble plusieurs options pour
-      <strong>TotalEnergies</strong>, <strong>Primeo Énergie</strong>, <strong>Mint Énergie</strong>,
-      <strong>Octopus Energy</strong> et <strong>Ekwateur</strong>. Beaucoup d’internautes recherchent par exemple
-      <strong>parrainage TotalEnergies</strong>, <strong>code parrainage Total</strong>,
-      <strong>parrainage Primeo Énergie</strong>, <strong>parrainage Mint Énergie</strong> ou
-      <strong>code promo Ekwateur</strong>. Le but de cette page est de centraliser ces recherches fréquentes
-      pour comparer rapidement les offres de parrainage énergie.
-    </p>
+    <details class="seo-details">
+      <summary>Voir plus d’informations sur le parrainage énergie</summary>
 
-    <div class="seo-grid">
-      <div class="seo-box">
+      <div class="seo-content">
+        <h2>Parrainage énergie : TotalEnergies, Primeo, Mint, Octopus et Ekwateur</h2>
+
+        <p>
+          Cette page rassemble plusieurs recherches fréquentes comme
+          <strong>parrainage TotalEnergies</strong>,
+          <strong>parrainage Total</strong>,
+          <strong>parrainage Total Energie</strong>,
+          <strong>parrainage Primeo</strong>,
+          <strong>parrainage Primeo Énergie</strong>,
+          <strong>parrainage Mint</strong>,
+          <strong>parrainage Mint Énergie</strong>,
+          <strong>parrainage Octopus Energy</strong> et
+          <strong>parrainage Ekwateur</strong>.
+        </p>
+
+        <p>
+          Si vous cherchez un <strong>code de parrainage énergie</strong>, un
+          <strong>code parrainage TotalEnergies</strong>, un
+          <strong>code parrainage Primeo</strong>, un
+          <strong>code parrainage Mint</strong> ou un
+          <strong>code promo Ekwateur</strong>, cette page permet de comparer rapidement plusieurs fournisseurs d’électricité et de gaz.
+        </p>
+
         <h3>Parrainage TotalEnergies</h3>
         <p>
-          Vous cherchez un <strong>parrainage TotalEnergies</strong>, un <strong>parrainage Total</strong> ou un
-          <strong>code parrainage TotalEnergies</strong> ? Retrouvez ici le code disponible pour
-          <strong>TotalEnergies électricité et gaz</strong> afin de réduire votre facture ou profiter d’un avantage de bienvenue.
+          Vous cherchez un <strong>parrainage TotalEnergies</strong>, un
+          <strong>parrainage Total</strong>, un
+          <strong>code TotalEnergies</strong> ou un
+          <strong>code parrainage Total Energie</strong> ? Retrouvez ici le code disponible pour TotalEnergies afin d’obtenir un avantage de bienvenue.
         </p>
-      </div>
 
-      <div class="seo-box">
         <h3>Parrainage Primeo Énergie</h3>
         <p>
-          La recherche <strong>parrainage Primeo</strong>, <strong>parrainage Primeo Énergie</strong> ou
-          <strong>code parrainage Primeo</strong> revient souvent. Cette page vous permet de trouver facilement
-          un <strong>code Primeo Énergie</strong> à copier avant votre souscription.
+          Les recherches comme <strong>parrainage Primeo</strong>,
+          <strong>parrainage Primeo Énergie</strong>,
+          <strong>code Primeo Énergie</strong> ou
+          <strong>code parrainage Primeo</strong> sont couvertes ici pour aider à trouver rapidement un code à copier.
         </p>
-      </div>
 
-      <div class="seo-box">
         <h3>Parrainage Mint Énergie</h3>
         <p>
-          Si vous tapez <strong>parrainage Mint</strong>, <strong>parrainage Mint Énergie</strong>,
-          <strong>code Mint Énergie</strong> ou <strong>code parrainage Mint</strong>, vous êtes au bon endroit.
-          Vous pouvez copier le code indiqué et accéder directement au lien associé lorsqu’il est disponible.
+          Si vous recherchez <strong>parrainage Mint</strong>,
+          <strong>parrainage Mint Énergie</strong>,
+          <strong>code Mint Énergie</strong> ou
+          <strong>code parrainage Mint</strong>, vous pouvez utiliser le code affiché sur cette page et cliquer sur le lien associé.
         </p>
-      </div>
 
-      <div class="seo-box">
         <h3>Parrainage Octopus Energy</h3>
         <p>
           Pour une recherche comme <strong>parrainage Octopus</strong>,
-          <strong>parrainage Octopus Energy</strong> ou <strong>lien de parrainage Octopus</strong>,
-          la page met à disposition un lien direct de souscription avec avantage.
+          <strong>parrainage Octopus Energy</strong> ou
+          <strong>lien parrainage Octopus</strong>, la page centralise le lien utile pour accéder à l’offre.
         </p>
-      </div>
 
-      <div class="seo-box">
         <h3>Parrainage Ekwateur</h3>
         <p>
           Vous pouvez aussi trouver ici un <strong>parrainage Ekwateur</strong>,
-          un <strong>code promo Ekwateur</strong> ou un <strong>code parrainage Ekwateur</strong>
-          pour bénéficier de l’offre liée à la souscription.
+          un <strong>code parrainage Ekwateur</strong> ou un
+          <strong>code promo Ekwateur</strong> pour bénéficier de l’avantage lié à la souscription.
         </p>
-      </div>
 
-      <div class="seo-box">
-        <h3>Changer de fournisseur d’énergie</h3>
         <p>
-          Comparer les offres d’électricité et de gaz peut permettre de faire des économies.
-          Le changement de fournisseur est généralement <strong>gratuit</strong>, sans travaux et sans coupure,
-          ce qui en fait une démarche simple pour chercher une meilleure offre de <strong>parrainage énergie</strong>.
+          Changer de fournisseur d’électricité ou de gaz est souvent
+          <strong>gratuit</strong>, sans coupure et sans intervention technique.
+          Comparer les offres et utiliser un code de parrainage peut permettre de faire des économies et de réduire sa facture chaque mois.
         </p>
+
+        <div class="keyword-cloud">
+          <span>parrainage total energie</span>
+          <span>parrainage totalenergies</span>
+          <span>parrainage total</span>
+          <span>code parrainage total energie</span>
+          <span>code totalenergies</span>
+          <span>parrainage primeo</span>
+          <span>parrainage primeo energie</span>
+          <span>code parrainage primeo</span>
+          <span>code primeo energie</span>
+          <span>parrainage mint</span>
+          <span>parrainage mint energie</span>
+          <span>code parrainage mint</span>
+          <span>code mint energie</span>
+          <span>parrainage octopus</span>
+          <span>parrainage octopus energy</span>
+          <span>parrainage ekwateur</span>
+          <span>code parrainage ekwateur</span>
+          <span>code promo ekwateur</span>
+          <span>parrainage fournisseur energie</span>
+          <span>code parrainage energie</span>
+          <span>parrainage electricite</span>
+          <span>parrainage gaz</span>
+          <span>changer fournisseur electricite</span>
+          <span>comparer fournisseurs energie</span>
+        </div>
       </div>
-    </div>
-  </div>
-
-  <div class="card">
-    <h2>Recherches fréquentes autour du parrainage énergie</h2>
-    <p class="small-note">
-      Voici des expressions souvent tapées par les internautes. Elles sont présentes ici pour faciliter la compréhension
-      du contenu par les moteurs de recherche, tout en gardant une page lisible.
-    </p>
-
-    <div class="keyword-cloud">
-      <span>parrainage total energie</span>
-      <span>parrainage totalenergies</span>
-      <span>parrainage total</span>
-      <span>code parrainage total energie</span>
-      <span>code totalenergies</span>
-      <span>parrainage primeo</span>
-      <span>parrainage primeo energie</span>
-      <span>code parrainage primeo</span>
-      <span>code primeo energie</span>
-      <span>parrainage mint</span>
-      <span>parrainage mint energie</span>
-      <span>code parrainage mint</span>
-      <span>code mint energie</span>
-      <span>parrainage octopus</span>
-      <span>parrainage octopus energy</span>
-      <span>lien parrainage octopus</span>
-      <span>parrainage ekwateur</span>
-      <span>code parrainage ekwateur</span>
-      <span>code promo ekwateur</span>
-      <span>parrainage fournisseur energie</span>
-      <span>code parrainage energie</span>
-      <span>parrainage electricite</span>
-      <span>parrainage gaz</span>
-      <span>changer fournisseur electricite</span>
-      <span>comparer fournisseurs energie</span>
-    </div>
+    </details>
   </div>
 
 </main>
@@ -505,7 +506,7 @@ function trackLink(provider){
 
 document.getElementById("searchInput").addEventListener("keyup", function(){
   let val = this.value.toLowerCase();
-  document.querySelectorAll("tbody tr").forEach(tr=>{
+  document.querySelectorAll("tbody tr").forEach(tr => {
     tr.style.display = tr.innerText.toLowerCase().includes(val) ? "" : "none";
   });
 });
